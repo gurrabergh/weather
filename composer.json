@@ -1,0 +1,15 @@
+{
+    "name" : "gurrabergh/weather",
+    "description": "A weather module for the framework anax.",
+    "license": "MIT",
+    "minimum-stability": "beta",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {"Anax\\": "src/"}
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7",
+        "anax/commons": "^2.0",
+        "psr/container": "^1.0"
+    }
+}
