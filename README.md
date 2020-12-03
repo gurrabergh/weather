@@ -21,3 +21,7 @@ composer require anax/remserver
 # Go to the root of your Anax base repo
 rsync -av vendor/gurrabergh/weather/config ./
 ```
+
+Place your API key for the Open Weather API in data/PRIVATE_TOKEN with only the key, in a single row.
+
+Go to route /weather and /weather-api to try it out.
