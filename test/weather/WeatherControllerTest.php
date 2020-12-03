@@ -22,11 +22,11 @@ class WeatherControllerTest extends TestCase
 
         // Setup di
         $this->di = new DIFactoryConfig();
-        $this->di->loadServices(ANAX_INSTALL_PATH . "/config/di");
         $this->di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
+        $this->di->loadServices(ANAX_INSTALL_PATH . "/config/di");
 
         // Use a different cache dir for unit test
-        $this->di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
+        // $this->di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
 
         // View helpers uses the global $di so it needs its value
         $di = $this->di;
@@ -56,7 +56,7 @@ class WeatherControllerTest extends TestCase
         $this->assertInstanceOf(ResponseUtility::class, $res);
     }
 
-    
+
     public function testValidIp4()
     {
         $request = $this->di->get("request");
@@ -87,7 +87,6 @@ class WeatherControllerTest extends TestCase
         $this->assertInstanceOf(ResponseUtility::class, $res);
     }
 
-    
     public function testValidCoord()
     {
         $request = $this->di->get("request");

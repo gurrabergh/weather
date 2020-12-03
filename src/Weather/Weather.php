@@ -15,7 +15,7 @@ class Weather
 
     public function getWeather($lat, $lon)
     {
-    
+
         $muH = curl_multi_init();
         $res = [];
         $handles = [];
@@ -25,7 +25,7 @@ class Weather
         curl_setopt($handles[0], CURLOPT_HEADER, false);
         curl_multi_add_handle($muH, $handles[0]);
 
-        for ($i=1; $i < 6; $i++) {
+        for ($i = 1; $i < 6; $i++) {
             $handles[$i] = curl_init();
             $days = "-${i} days";
             $time = date(strtotime($days));
@@ -34,9 +34,6 @@ class Weather
             curl_setopt($handles[$i], CURLOPT_HEADER, false);
             curl_multi_add_handle($muH, $handles[$i]);
         }
-
-
-        
 
         $running = 0;
         do {

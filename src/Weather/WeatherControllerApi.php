@@ -4,6 +4,7 @@ namespace Anax\Weather;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
+use Anax\Ip2\IpStack;
 
 // use Anax\Route\Exception\ForbiddenException;
 // use Anax\Route\Exception\NotFoundException;
@@ -18,6 +19,7 @@ use Anax\Commons\ContainerInjectableTrait;
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
+
 class WeatherControllerApi implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
@@ -47,7 +49,7 @@ class WeatherControllerApi implements ContainerInjectableInterface
     //  *
     //  * @return string
     //  */
-    public function indexActionGet() : object
+    public function indexActionGet(): object
     {
         $title = "Weather API";
         $page = $this->di->get("page");
@@ -61,7 +63,7 @@ class WeatherControllerApi implements ContainerInjectableInterface
             "title" => $title,
         ]);
     }
-    public function searchCordActionPost() : array
+    public function searchCordActionPost(): array
     {
         $request = $this->di->request;
         $wcL = $this->di->weather;
@@ -80,9 +82,9 @@ class WeatherControllerApi implements ContainerInjectableInterface
      *
      * @return object
      */
-    public function searchIpActionPost() : array
+    public function searchIpActionPost(): array
     {
-        $ipStack = new \Anax\Ip2\IpStack();
+        $ipStack = new IpStack();
         $request = $this->di->request;
         $ipAd = $request->getPost("ip");
         $ipA = $ipStack->getInfo($ipAd);
