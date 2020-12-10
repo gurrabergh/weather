@@ -5,6 +5,9 @@ php:
     - hhvm
     - nightly
 
+services:
+  - docker
+
 matrix:
     allow_failures:
         - php: nightly
